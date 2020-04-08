@@ -293,6 +293,22 @@ def funct(url):
     print(bizObject)
     print("-"*20)
 
+@app.route("/", methods=["POST"])
+def index():
+    # print(request.form)
+    test = funct(request.form["url"])
+    return Response(json.dumps(test), mimetype='application/json')
+    # return json.dumps(request.form)
+    # return json.dumps({"key": 3})
+
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
+    
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument('url', help='yelp bussiness url')
