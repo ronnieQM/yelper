@@ -1,0 +1,29 @@
+{
+  "object": {
+    "id": {},
+    "title": {},
+    "url": {},
+    "avgRating": {},
+    "reviews": {},
+    "city": {},
+    "address": {},
+    "phone": {},
+    "www": {},
+    "comments": {
+      "cN": {
+        "cid": {},
+        "user": {},
+        "city": {},
+        "comment": {},
+        "rating": {}
+      },
+      "cN1": {
+        "cid": {},
+        "user": {},
+        "city": {},
+        "comment": {},
+        "rating": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+<h1>dfasdfasdf</h1>
+{% block content %}
+<h1>Welcome to Yelper!</h1>
+<h4>See what people are saying about your business!</h4>
+
+<br><hr>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="url">YOUR BUSINESS URL: </label><br>
+        <input type="text" class="form-control" id="id_url" name="url">
+    </div>
+    <button type="submit" class="btn btn-success">ANALYZE</button>
+</form>
+<br><hr>
+
+
+
+
+{% endblock %}
