@@ -108,7 +108,7 @@ dmypy.json
 .pyre/
 
 # CUSTOM
-/reference/*
-/copy_yelpScrapper/*
+reference/*
+copy_yelpScrapper/*
 # End of https://www.gitignore.io/api/python
 
