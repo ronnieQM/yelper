@@ -14,7 +14,6 @@ import re
 import logging
 
 
-
 businessName = "lemon--h1__373c0__2ZHSL heading--h1__373c0__1VUMO heading--no-spacing__373c0__1PzQP heading--inline__373c0__1F-Z6" # h1, class
 avgRating1 = "lemon--div__373c0__1mboc i-stars__373c0__3UQrn i-stars--large-4-half__373c0__1ya3H border-color--default__373c0__2oFDT overflow--hidden__373c0__8Jq2I" # div class aria-label
 avgRating2 = "lemon--div__373c0__1mboc i-stars__373c0__3UQrn i-stars--large-5__373c0__3f1bF border-color--default__373c0__2oFDT overflow--hidden__373c0__8Jq2I"
@@ -300,27 +299,14 @@ def index():
     # print(request.form)
     # return json.dumps(request.form)
     # return json.dumps({"key": 3})
-     
     # return request.args.get("url")
     # url = request.args.get("url")
-    test = funct(request.args.get("url"))
     # return Response("Hello, Zappa")
     # return "happy test"
     # test = funct(request.form["url"])
+    test = funct(request.args.get("url"))
     return Response(json.dumps(test), mimetype='application/json')
 
-# @app.route("/", methods=["GET"])
-# def publicView():
-#     return "Welcome to Yelper! Please view our documentation at {TODO}.<hr> Built by <a href='https://github.com/ronnieQM'>Ronnie.</a>"
-
-
-# @app.after_request
-# def after_request(response):
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-#     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-#     return response
-    
 if __name__ == "__main__":
     # argparser = argparse.ArgumentParser()
     # argparser.add_argument('url', help='yelp bussiness url')
