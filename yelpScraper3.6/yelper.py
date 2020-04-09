@@ -64,15 +64,15 @@ class Business:
         self.reviewCount = 0
         
     def allReviews(self):
-        print("All Reviews_")
         return "All Reviews"
-    def test(self):
-        return "ID: {},\nURL: {}, \nName: {},\nAddress: {},\nNumber of Reviews: {}, \nAverage Rating: {}, \nPhone: {}, \nWebsite: {}, \nCategories: {}, \nAmenities: {}, \nReviews: {}".format(self.id, self.url, self.name, self.address, self.numReviews, self.avgRating, self.phone, self.website, self.categories, self.amenities, len(self.reviews))
+
+    def toJSON(self):
+        return 'this is a test' 
 
     def __str__(self):
         return "ID: {},\nURL: {}, \nName: {},\nAddress: {},\nNumber of Reviews: {}, \nAverage Rating: {}, \nPhone: {}, \nWebsite: {}, \nCategories: {}, \nAmenities: {}, \nReviews: {}".format(self.id, self.url, self.name, self.address, self.numReviews, self.avgRating, self.phone, self.website, self.categories, self.amenities, len(self.reviews))
     def __repr__(self):
-        print("TODO")
+        # TODO
         return "something?"
 
 class Review:
@@ -101,6 +101,7 @@ def funct(url):
     page_response = requests.get(url, timeout=10)
     page_content = BeautifulSoup(page_response.content, "html.parser")
     print("Successful page response from: {}\n".format(url))
+
     # !ID!
     # generate ID
     id = random.randint(1, 10000) 
@@ -252,7 +253,25 @@ def funct(url):
     print(bizObject)
     type(bizObject)
     print("- "*20)
-    return str(bizObject)
+    bizDictionay = {
+        "id": bizObject.id, 
+        "Business Name": bizObject.name, 
+        "url": bizObject.url, 
+        "average rating": bizObject.avgRating, 
+        "number of reviews": bizObject.numReviews, 
+        "number of scraped reviews": bizObject.reviewCount, 
+        "address": bizObject.address, 
+        "phone": bizObject.phone,
+        "website": bizObject.website, 
+        "reviews": {
+            "user": None,
+            "date": "3/4/12",
+            "comment": "This is a test comment. I want to get a Lorem ipsum genator plugin.",
+            "rating": "3/5",
+            }
+        }
+    # id: None, user: {}, city: {}, comment,{}, rating: {}
+    return bizDictionay
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -264,8 +283,12 @@ def index():
     # return Response("Hello, Zappa")
     # return "happy test"
     # test = funct(request.form["url"])
-    test = funct(request.args.get("url"))
-    return Response(json.dumps(test), mimetype='application/json')
+    if request.method == 'POST':  
+        yelperResult = funct(request.args.get("url"))
+        return Response(json.dumps(yelperResult), mimetype='application/json')
+    return '''
+        Welcome to YELPER! Please view our documentation at {TODO}.<hr><br> Built by <a href='https://github.com/ronnieQM'>Ronnie.</a>
+              ''' 
 
 if __name__ == "__main__":
     app.run(debug=True)
