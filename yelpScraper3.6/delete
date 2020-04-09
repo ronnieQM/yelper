@@ -1,0 +1,24 @@
+{'resource': '/', 'path': '/', '
+httpMethod': 'GET', 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate, br', 'CloudFront-Forwarded-Proto': 'https', 
+'CloudFront-Is-Desktop-Viewer': 'true', 'CloudFront-Is-Mobile-Viewer': 'false', 'CloudFront-Is-SmartTV-Viewer': 'false', 'CloudFront-Is-Tablet-Viewer': 
+'false', 'CloudFront-Viewer-Country': 'US', 'Host': '87e62dwwb4.execute-api.us-west-2.amazonaws.com', 'Postman-Token':
+ '6beb6f1c-6f70-4607-ab58-8161732300cc', 'User-Agent': 'PostmanRuntime/7.24.0', 'Via': '1.1 cd70e8654a3d1e664579c68192c0146d.cloudfront.net (CloudFront)',
+  'X-Amz-Cf-Id': 'cxcZZ70cU_XnZn3HganvfWF-4-d_Hctq1WPj-O9J7PC36JbXNC8_0Q==', 'X-Amzn-Trace-Id': 'Root=1-5e8ec998-87cf06c9f72f6855a3c30c21', 
+  'X-Forwarded-For': '107.198.0.166, 70.132.61.151', 'X-Forwarded-Port': '443', 'X-Forwarded-Proto': 'https'}, 'multiValueHeaders': {'Accept': ['*/*'], 
+  'Accept-Encoding': ['gzip, deflate, br'], 'CloudFront-Forwarded-Proto': ['https'], 'CloudFront-Is-Desktop-Viewer': ['true'], 
+  'CloudFront-Is-Mobile-Viewer': ['false'], 'CloudFront-Is-SmartTV-Viewer': ['false'], 'CloudFront-Is-Tablet-Viewer': ['false'], 
+  'CloudFront-Viewer-Country': ['US'], 'Host': ['87e62dwwb4.execute-api.us-west-2.amazonaws.com'], 'Postman-Token': 
+  ['6beb6f1c-6f70-4607-ab58-8161732300cc'], 'User-Agent': ['PostmanRuntime/7.24.0'], 'Via': ['1.1 
+  cd70e8654a3d1e664579c68192c0146d.cloudfront.net (CloudFront)'], 'X-Amz-Cf-Id': ['cxcZZ70cU_XnZn3HganvfWF-4-d_Hctq1WPj-O9J7PC36JbXNC8_0Q=='],
+   'X-Amzn-Trace-Id': ['Root=1-5e8ec998-87cf06c9f72f6855a3c30c21'], 'X-Forwarded-For': ['107.198.0.166, 70.132.61.151'], 'X-Forwarded-Port': 
+   ['443'], 'X-Forwarded-Proto': ['https']}, 'queryStringParameters': {'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee':
+    'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'}, 'multiValueQueryStringParameters':
+     {'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee': 
+     ['kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk']}, 'pathParameters': None, 'stageVariables': None, 
+     'requestContext': {'resourceId': 'owlc51b0kk', 'resourcePath': '/', 'httpMethod': 'GET', 'extendedRequestId': 'KtRv0GBaPHcF8BA=', 
+     'requestTime': '09/Apr/2020:07:07:04 +0000', 'path': '/dev', 'accountId': '030911521932', 'protocol': 'HTTP/1.1', 'stage': 'dev', 
+     'domainPrefix': '87e62dwwb4', 'requestTimeEpoch': 1586416024333, 'requestId': 'c3d3133f-151c-4792-ac54-196b8a5d81c1', 'identity': 
+     {'cognitoIdentityPoolId': None, 'accountId': None, 'cognitoIdentityId': None, 'caller': None, 'sourceIp': '107.198.0.166', 'principalOrgId': 
+     None, 'accessKey': None, 'cognitoAuthenticationType': None, 'cognitoAuthenticationProvider': None, 'userArn': None, 'userAgent': 
+     'PostmanRuntime/7.24.0', 'user': None}, 'domainName': '87e62dwwb4.execute-api.us-west-2.amazonaws.com', 'apiId': '87e62dwwb4'}, 
+     'body': None, 'isBase64Encoded': False}

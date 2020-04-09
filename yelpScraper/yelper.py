@@ -300,7 +300,7 @@ def funct(url):
     print("- "*20)
     return str(bizObject)
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET", "POST"])
 def index():
     # print(request.form)
     # return json.dumps(request.form)
@@ -308,21 +308,22 @@ def index():
      
     # return request.args.get("url")
     # url = request.args.get("url")
-    return funct(request.args.get("url"))
+    # return funct(request.args.get("url"))
+    return "happy test"
     # test = funct(request.form["url"])
     # return Response(json.dumps(test), mimetype='application/json')
 
-@app.route("/", methods=["GET"])
-def publicView():
-    return "Welcome to Yelper! Please view our documentation at {TODO}.<hr> Built by <a href='https://github.com/ronnieQM'>Ronnie.</a>"
+# @app.route("/", methods=["GET"])
+# def publicView():
+#     return "Welcome to Yelper! Please view our documentation at {TODO}.<hr> Built by <a href='https://github.com/ronnieQM'>Ronnie.</a>"
 
 
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-    return response
+# @app.after_request
+# def after_request(response):
+#     response.headers.add('Access-Control-Allow-Origin', '*')
+#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+#     return response
     
 if __name__ == "__main__":
     # argparser = argparse.ArgumentParser()

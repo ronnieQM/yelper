@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "aws_region": "us-west-2",
+        "app_function": "yelper.app",
+        "profile_name": "default",
+        "project_name": "yelpscraper0",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-a4acydx0s"
+    }
+}
