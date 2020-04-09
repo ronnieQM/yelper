@@ -1,5 +1,6 @@
 from flask import Flask, request, Response
 from bs4 import BeautifulSoup
+import requests
 import argparse
 import sys
 import json
@@ -302,11 +303,11 @@ def index():
      
     # return request.args.get("url")
     # url = request.args.get("url")
-    # return funct(request.args.get("url"))
-    return Response("Hello, Zappa")
+    test = funct(request.args.get("url"))
+    # return Response("Hello, Zappa")
     # return "happy test"
     # test = funct(request.form["url"])
-    # return Response(json.dumps(test), mimetype='application/json')
+    return Response(json.dumps(test), mimetype='application/json')
 
 # @app.route("/", methods=["GET"])
 # def publicView():
