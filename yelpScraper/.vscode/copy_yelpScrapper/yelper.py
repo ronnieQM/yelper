@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+# from flask import Flask, request, Response
 from bs4 import BeautifulSoup
 import requests
 import argparse
@@ -51,9 +51,6 @@ phoneRegex = "((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
 
 # logging.basicConfig(level=logging.DEBUG)
 
-app = Flask(__name__)
-# cors = CORS(app)
-
 class Business:
     def __init__(self):
         self.id = None
@@ -72,9 +69,7 @@ class Business:
     def allReviews(self):
         print("All Reviews_")
         return "All Reviews"
-    def test(self):
-        return "ID: {},\nURL: {}, \nName: {},\nAddress: {},\nNumber of Reviews: {}, \nAverage Rating: {}, \nPhone: {}, \nWebsite: {}, \nCategories: {}, \nAmenities: {}, \nReviews: {}".format(self.id, self.url, self.name, self.address, self.numReviews, self.avgRating, self.phone, self.website, self.categories, self.amenities, len(self.reviews))
-
+    
     def __str__(self):
         return "ID: {},\nURL: {}, \nName: {},\nAddress: {},\nNumber of Reviews: {}, \nAverage Rating: {}, \nPhone: {}, \nWebsite: {}, \nCategories: {}, \nAmenities: {}, \nReviews: {}".format(self.id, self.url, self.name, self.address, self.numReviews, self.avgRating, self.phone, self.website, self.categories, self.amenities, len(self.reviews))
     def __repr__(self):
@@ -101,7 +96,7 @@ def funct(url):
     bizObject = Business ()
 
     # initialize BS4
-    print("\n\n\nBegin requesting page...")
+    print("begin requesting page...")
     baseUrl = url.split('?', 1)[0]
     url = baseUrl
     page_response = requests.get(url, timeout=10)
@@ -291,43 +286,16 @@ def funct(url):
             print("!"*30)
 
     bizObject.reviewCount = len(bizObject.reviews)
-    print("- "*20)
+    print("-"*20)
 
     for x in bizObject.reviews:
         print(x)
     print(bizObject)
-    type(bizObject)
-    print("- "*20)
-    return str(bizObject)
+    print("-"*20)
 
-@app.route("/", methods=["POST"])
-def index():
-    # print(request.form)
-    # return json.dumps(request.form)
-    # return json.dumps({"key": 3})
-     
-    # return request.args.get("url")
-    # url = request.args.get("url")
-    return funct(request.args.get("url"))
-    # test = funct(request.form["url"])
-    # return Response(json.dumps(test), mimetype='application/json')
-
-@app.route("/", methods=["GET"])
-def publicView():
-    return "Welcome to Yelper! Please view our documentation at {TODO}.<hr> Built by <a href='https://github.com/ronnieQM'>Ronnie.</a>"
-
-
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-    return response
-    
 if __name__ == "__main__":
-    # argparser = argparse.ArgumentParser()
-    # argparser.add_argument('url', help='yelp bussiness url')
-    # args = argparser.parse_args()
-    # url = args.url
-    # funct(url)
-    app.run(debug=True)
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument('url', help='yelp bussiness url')
+    args = argparser.parse_args()
+    url = args.url
+    funct(url)
