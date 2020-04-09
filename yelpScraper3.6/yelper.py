@@ -92,7 +92,7 @@ class Review:
         print("\nUser: {}, \nCity: {}, \nDate: {}, \nRating: {}, \nComment:{}".format(self.user, self.location, self.datePosted, self.rating, self.comment))
 
 def funct(url):
-    bizObject = Business ()
+    bizObject = Business()
 
     # initialize BS4
     print("\n\n\nBegin requesting page...")
@@ -119,48 +119,7 @@ def funct(url):
     numReviews = [int(i) for i in numberOfReviews.split() if i.isdigit()][0]
 
     # !Average Rating!
-    # # TODO  clean this function
-    # # find outter class, then REGEX/SOUP out the aria-labelb 
-    # try: 
-    #     avg = page_content.find('div', attrs={"class": avgRating1})["aria-label"]
-    #     avgRate = [int(i) for i in avg.split() if i.isdigit()][0]
-    #     print("Average Rating 1 found.")
-    #     # logging.debug('AVG Rating Class 1 Found')
-    # except Exception as ex:
-    #     print('Error:',  ex)
-    #     # logging.error('Error:', ex)
-    # try:
-    #     avgRate = page_content.find('div', attrs={"class": avgRating2})["aria-label"]
-    #     # logging.debug('AVG Rating Class 2 Found')
-    #     print("Average Rating 2 found.")
-    # except Exception as ex:
-    #     print('Error:',  ex)
-    #     # logging.error('Error:', ex)
-    # try:
-    #     avg = page_content.find('div', attrs={"class": avgRating3})["aria-label"]
-    #     avgRate = [int(i) for i in avg.split() if i.isdigit()][0]
-    #     # logging.debug('AVG Rating Class 1 Found')
-    #     print("Average Rating 3 found.")
-    #     # logging.debug('AVG Rating Class 2 Found')
-    # except Exception as ex:
-    #     print('Error:',  ex)
-    # try:
-    #     avg = page_content.find('div', attrs={"class": avgRating4})["aria-label"]
-    #     avgRate = [int(i) for i in avg.split() if i.isdigit()][0]
-    #     # logging.debug('AVG Rating Class 1 Found')
-    #     if avg:
-    #         print("Average Rating 4 found.")
-    # except Exception as ex:
-    #     print('Error:',  ex)
-    # try:
-    #     avg = page_content.find('div', attrs={"class": avgRating5})["aria-label"]
-    #     avgRate = [int(i) for i in avg.split() if i.isdigit()][0]
-    #     # logging.debug('AVG Rating Class 1 Found')
-    #     if avg:
-    #         print("Average Rating 4 found.")
-    # except Exception as ex:
     avgRate = None
-    #     # logging.error('Error:', ex)
 
     # !Phone! 
     webPhoneDirBlock= page_content.find('div', attrs={"class": webPhoneDirBlockClass})
@@ -169,7 +128,7 @@ def funct(url):
     try:
         www = webPhoneDirBlock.find('a', attrs={"role": "link"}).text
     except Exception as asdf:
-        print('www Error:', asdf)
+        print('www Error:', 'Could not find WEBSITE. ')
         www = None
 
     # !Amenities!
@@ -185,7 +144,7 @@ def funct(url):
     categoryBlock = page_content.find('div', attrs={"class": categoriesBlockClass})
 
     
-    # !Comments!
+    # !Comments! FIRST PAGE
     mainBlocks = page_content.findAll('div', attrs={"class": mainBlockClass}) # find all review blocks
     for i in mainBlocks:
         review = Review()
@@ -228,6 +187,7 @@ def funct(url):
     bizObject.website = www
     bizObject.amenities = amenities
     # TODO: add amenities to object
+    # !Comments! ALL PAGES
     print("#"*30)
     print("Begin pagination")
 
@@ -308,9 +268,4 @@ def index():
     return Response(json.dumps(test), mimetype='application/json')
 
 if __name__ == "__main__":
-    # argparser = argparse.ArgumentParser()
-    # argparser.add_argument('url', help='yelp bussiness url')
-    # args = argparser.parse_args()
-    # url = args.url
-    # funct(url)
     app.run(debug=True)
