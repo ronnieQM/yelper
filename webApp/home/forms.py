@@ -1,7 +1,7 @@
 from django import forms
-from .models import Query# todo
+from .models import Query, Search
 
 class MyForm(forms.ModelForm):
     class Meta:
-        model = Query
+        model = Search
         fields = ['url',]

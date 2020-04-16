@@ -8,6 +8,7 @@ import os
 import uuid
 import types
 from random import choice
+import time
 import random
 
 import re
@@ -43,7 +44,7 @@ categoriesBlockClass = "lemon--span__373c0__3997G display--inline__373c0__1DbOG 
 wwwRegex = "([^\s]+)"
 phoneRegex = "((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
 
-# logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 # cors = CORS(app)
@@ -97,21 +98,33 @@ class Review:
 
 
 def funct(url):
+    start = time.time()
     bizObject = Business()
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
+    html = None
 
     # initialize BS4
-    print("\n\n\nBegin requesting page...")
+    print("\n\n\nATTEMPTING TO REQUEST PAGE...")
     baseUrl = url.split('?', 1)[0]
     url = baseUrl
-    page_response = requests.get(url, timeout=10)
+    #### ADD RETRY LOGIC HERE
+    ########## TODO RETY LOGIC
+    ########## Basically, if title is NONE, then use PROXY and retry
+    try: 
+        page_response = requests.get(url, headers, timeout=10)
+    except Exception as ex:
+        print(str(ex))
+        
     page_content = BeautifulSoup(page_response.content, "html.parser")
-    print("Successful page response from: {}\n".format(url))
+    print("SUCCESSFUL PAGE RESPONSE FROM: {}".format(url))
 
     # !ID!
     # generate ID
     id = random.randint(1, 10000)
 
     # begin grabbing content, 1st page
+    # !Title!
     title = page_content.find('h1', attrs={"class": businessName}).text
 
     # !Address!
@@ -135,8 +148,8 @@ def funct(url):
     phone = re.search(phoneRegex, str(phoneWWW)).group(0)
     try:
         www = webPhoneDirBlock.find('a', attrs={"role": "link"}).text
-    except Exception as asdf:
-        print('www Error:', 'Could not find WEBSITE. ')
+    except Exception as ex:
+        print('ERROR:', ex)
         www = None
 
     # !Amenities!
@@ -204,53 +217,52 @@ def funct(url):
     bizObject.website = www
     bizObject.amenities = amenities
     # TODO: add amenities to object
+
     # !Comments! ALL PAGES
-    print("#"*30)
-    print("Begin pagination")
+    print("SUCCESSFUL PAGE SCRAPING: PAGE 1")
+    print(" ")
+    print("\n\n\nBEGIN PAGINATION SCRAPRING")
 
     p = 20
     while True:
         pageCount = p/20 + 1
         newUrl = (url + "?start={}".format(p))
         print("!~!~"*20)
-        print("\n\n\n\nTry Scraping:\n{}".format(newUrl))
-        print(pageCount)
-
+        print("ATTEMPTING TO SCRAPE PAGE {}:\n{}".format(str(pageCount), newUrl))
         try:
             page_response = requests.get(newUrl, timeout=5)
             page_content = BeautifulSoup(page_response.content, "html.parser")
-            print("\nSuccessful page_response")
-
             mainBlocks = page_content.findAll(
                 'div', attrs={"class": mainBlockClass})
             print(type(mainBlocks))
-            print("!~!~"*20)
+            print("SUCCESSFULL PAGE({}) RESPONSE".format(str(pageCount)))
+            print("~!~!"*20)
             p += 20
+            # sleep(10)
+            # this IF is what makes sure that the WHILE ends eventually
             if mainBlocks:
+                print("BEGIN: IN MAINBLOCK")
                 for i in mainBlocks:
                     review = Review()
                     try:
-                        userName = i.find(
-                            'span', attrs={"class": userClass}).text  # user name
+                        userName = i.find('span', attrs={"class": userClass}).text  # user name
                         review.user = userName
                     except Exception as ex:
-                        # print("userClass 1 not found.")
+                        print("ERROR:",ex)
+                        print('DID NOT FIND USER NAME 0')
                         pass
                     try:
-                        userName = i.find(
-                            'a', attrs={"class": userClass1}).text  # user name
+                        userName = i.find('a', attrs={"class": userClass1}).text  # user name
                         review.user = userName
                     except Exception as ex:
-                        # print("UserClass 2 not found")
+                        print("ERROR:",ex)
+                        print('DID NOT FIND USER NAME 1')
                         pass
 
-                    review.comment = i.find(
-                        'p', attrs={"class": commentClass}).text  # comment
-                    review.location = i.find(
-                        'span', attrs={"class": userCityClass}).text  # user city
+                    review.comment = i.find('p', attrs={"class": commentClass}).text  # comment
+                    review.location = i.find('span', attrs={"class": userCityClass}).text  # user city
 
-                    ratingDateBlock = i.find(
-                        'div', attrs={"class": ratingDateClass})
+                    ratingDateBlock = i.find('div', attrs={"class": ratingDateClass})
                     for j in ratingDateBlock:
                         try:
                             review.datePosted = j.find(
@@ -265,14 +277,16 @@ def funct(url):
                         except:
                             pass
                     bizObject.reviews.append(review)
+                    print('END: IN MAINBLOCK')
+                    print("~!~!"*20)
             else:
                 break
         except:
             print("!"*30)
 
     bizObject.reviewCount = len(bizObject.reviews)
+    print("VIEW OF COMMENTS:")
     print("- "*20)
-
     for x in bizObject.reviews:
         print(x)
     print(bizObject)
@@ -304,6 +318,10 @@ def funct(url):
         x += 1
 
     # id: None, user: {}, city: {}, comment,{}, rating: {}
+    end = time.time()
+    print('... '*20)
+    print(end - start)
+    print('... '*20)
     return bizDictionary
 
 
