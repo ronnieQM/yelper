@@ -8,11 +8,11 @@ import os
 import uuid
 import types
 from random import choice
-import time
 import random
 
 import re
 import logging
+from multiprocessing import Pool
 
 
 businessName = "lemon--h1__373c0__2ZHSL heading--h1__373c0__1VUMO heading--no-spacing__373c0__1PzQP heading--inline__373c0__1F-Z6"  # h1, class
@@ -45,6 +45,11 @@ wwwRegex = "([^\s]+)"
 phoneRegex = "((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
 
 logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
+logging.debug('This message should go to the log file')
+logging.info('So should this')
+logging.warning('And this, too')
+
 
 app = Flask(__name__)
 # cors = CORS(app)
