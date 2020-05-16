@@ -4,10 +4,15 @@ from fake_useragent import UserAgent
 import random
 import time
 import os
+import logging
 
 log = logging.getLogger(__name__) 
 logging.basicConfig(level=logging.DEBUG)
-logging.basicConfig(filename='example.log',level=logging.DEBUG)
+logging.basicConfig(filename='yelper.log',
+                            filemode='a',
+                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                            datefmt='%H:%M:%S',
+                            level=logging.DEBUG)
 logging.debug('BEGIN PROGRAM')
 
 ua = UserAgent() # From here we generate a random user agent
