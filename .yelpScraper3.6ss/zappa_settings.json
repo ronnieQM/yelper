@@ -1,0 +1,11 @@
+{
+    "dev": {
+        "aws_region": "us-west-2",
+        "app_function": "yelper.app",
+        "profile_name": "default",
+        "project_name": "yelpscraper3-6",
+        "runtime": "python3.6",
+        "exclude": ["concurrent"],
+        "s3_bucket": "zappa-fkp5zfxs5"
+    }
+}

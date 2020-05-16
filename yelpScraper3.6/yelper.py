@@ -9,11 +9,14 @@ import uuid
 import types
 from random import choice
 import random
-
 import re
 import logging
 from multiprocessing import Pool
 
+log = logging.getLogger(__name__) 
+logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
+logging.debug('BEGIN PROGRAM')
 
 businessName = "lemon--h1__373c0__2ZHSL heading--h1__373c0__1VUMO heading--no-spacing__373c0__1PzQP heading--inline__373c0__1F-Z6"  # h1, class
 avgRating1 = "lemon--div__373c0__1mboc i-stars__373c0__3UQrn i-stars--large-4-half__373c0__1ya3H border-color--default__373c0__2oFDT overflow--hidden__373c0__8Jq2I"  # div class aria-label
@@ -43,13 +46,6 @@ categoriesBlockClass = "lemon--span__373c0__3997G display--inline__373c0__1DbOG 
 
 wwwRegex = "([^\s]+)"
 phoneRegex = "((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
-
-logging.basicConfig(level=logging.DEBUG)
-logging.basicConfig(filename='example.log',level=logging.DEBUG)
-logging.debug('This message should go to the log file')
-logging.info('So should this')
-logging.warning('And this, too')
-
 
 app = Flask(__name__)
 # cors = CORS(app)
