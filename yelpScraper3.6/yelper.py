@@ -12,6 +12,7 @@ import random
 import re
 import logging
 from multiprocessing import Pool
+import time
 
 log = logging.getLogger(__name__) 
 logging.basicConfig(level=logging.DEBUG)
