@@ -1,4 +1,4 @@
-#!/home/rqm/dev/yelper/yelpScraper3.6/venv/bin/python3.6
+#!/home/rqm/dev/yelper/yelpScraper3.6/venv/bin/python
 
 import sys
 import json
