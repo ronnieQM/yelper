@@ -11,14 +11,12 @@ import logging
 import json
 import os
 
-
 # config settings
 logging.basicConfig(filename='yelper.log',
-                            filemode='a',
-                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                            datefmt='%H:%M:%S',
-                            level=logging.DEBUG)
-
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
 
 # regex, for validation
 url_regex = r"([^\s]+)"
@@ -52,9 +50,7 @@ categoriesBlockClass = "lemon--div__373c0__1mboc arrange-unit__373c0__1piwO arra
 categoriesBlockClass = "lemon--span__373c0__3997G display--inline__373c0__1DbOG u-space-r1 border-color--default__373c0__2oFDT"  # div
 
 
-
 # define model(s)
-# TODO
 class Business:
     def __init__(self):
         self.id = None
@@ -97,7 +93,8 @@ class Business:
     def __repr__(self):
         # TODO
         return "something?"
-        
+
+
 class Review:
     def __init__(self):
         self.user = None
@@ -120,39 +117,46 @@ class Review:
         print("\nUser: {}, \nCity: {}, \nDate: {}, \nRating: {}, \nComment:{}".format(
             self.user, self.location, self.datePosted, self.rating, self.comment))
 
-class Processed_Request:
-    def __int__(self, url, name, pr, pc):
-        self.url = url, 
-        self.name = name,  
-        # self.date
-        self.page_respone = pr
-        self.page_content = pc
+
+class ProcessedRequest:
+    def __init__(self, original_url, base_url, name, page_response, page_content):
+        self.original_url = original_url,
+        self.url = base_url,
+        self.name = name,
+        self.page_response = page_response,
+        self.page_content = page_content
 
 
 # grabber function
-
-def requester(url: str) -> Processed_Request:
+def requester(url: str) -> ProcessedRequest:
     """ Request page and return beautiful soup object"""
+
+    original_url = url
+    # clean the url, remove query params
+    url = url.split('?', 1)[0]
+
     # initialize BS4
     headers = {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/53.0.2785.143 Safari/537.36'}
 
-    print("\n\n\nATTEMPTING TO REQUEST PAGE...")
-    url = url.split('?', 1)[0]
-    
-    try: 
-        page_response = requests.get(url, headers, timeout=10)
-    except Exception as ex:
-        print(str(ex))
+    # begin request
+    ##############################
+    logging.info(f'Requesting {url}')
+    logging.info(' ')
+    page_response = requests.get(url, headers, timeout=10)
     page_content = BeautifulSoup(page_response.content, "html.parser")
-    title = page_content.find('h1', attrs={"class": businessName}).text
-    
-    return Processed_Request(url, title, page_response, page_content)
+    title = 'This is a website?'
+    print(type(page_response))
+    print(type(page_content))
+    logging.info(' ')
+    ##############################
+    # title = page_content.find('h1', attrs={"class": businessName}).text
 
-def grabber(url: str) -> dict:
+    return ProcessedRequest(original_url, url, title, page_response, page_content)
+
+
+def grabber(page: ProcessedRequest) -> dict:
     """Parse HTML and return json object."""
-
-    print(url)
-    
+    # code goes here
     return 'JSON'
-

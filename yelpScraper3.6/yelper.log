@@ -1,0 +1,56 @@
+22:18:28,991 root INFO Requesting https://realpython.com/python-logging/
+22:18:28,991 root INFO  
+22:18:28,995 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): realpython.com:443
+22:18:30,739 urllib3.connectionpool DEBUG https://realpython.com:443 "GET /python-logging/?user-agent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_11_6%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F53.0.2785.143+Safari%2F537.36 HTTP/1.1" 200 None
+22:18:30,797 root INFO  
+22:18:46,638 root INFO Requesting https://realpython.com/python-logging/
+22:18:46,638 root INFO  
+22:18:46,641 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): realpython.com:443
+22:18:48,31 urllib3.connectionpool DEBUG https://realpython.com:443 "GET /python-logging/?user-agent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_11_6%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F53.0.2785.143+Safari%2F537.36 HTTP/1.1" 200 None
+22:18:48,82 root INFO  
+22:20:25,945 root INFO Requesting https://realpython.com/python-logging/
+22:20:25,945 root INFO  
+22:20:25,947 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): realpython.com:443
+22:20:28,632 urllib3.connectionpool DEBUG https://realpython.com:443 "GET /python-logging/?user-agent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_11_6%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F53.0.2785.143+Safari%2F537.36 HTTP/1.1" 200 None
+22:20:28,722 root INFO  
+22:21:11,130 root INFO Requesting https://realpython.com/python-logging/
+22:21:11,130 root INFO  
+22:21:11,132 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): realpython.com:443
+22:21:13,699 urllib3.connectionpool DEBUG https://realpython.com:443 "GET /python-logging/?user-agent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_11_6%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F53.0.2785.143+Safari%2F537.36 HTTP/1.1" 200 None
+22:21:13,748 root INFO  
+20:44:21,333 root INFO Requesting df
+20:44:21,334 root INFO  
+20:44:29,637 root INFO Requesting www.google.com
+20:44:29,637 root INFO  
+20:44:43,460 root INFO Requesting http://www.google.com
+20:44:43,460 root INFO  
+20:44:43,461 urllib3.connectionpool DEBUG Starting new HTTP connection (1): www.google.com:80
+20:44:43,594 urllib3.connectionpool DEBUG http://www.google.com:80 "GET /?user-agent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_11_6%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F53.0.2785.143+Safari%2F537.36 HTTP/1.1" 200 5370
+20:44:43,666 chardet.charsetprober DEBUG EUC-JP Japanese prober hit error at byte 9817
+20:44:43,685 chardet.charsetprober DEBUG EUC-KR Korean prober hit error at byte 9817
+20:44:43,703 chardet.charsetprober DEBUG Big5 Chinese prober hit error at byte 9817
+20:44:43,712 chardet.charsetprober DEBUG EUC-TW Taiwan prober hit error at byte 9817
+20:44:43,731 chardet.charsetprober DEBUG utf-8 not active
+20:44:43,731 chardet.charsetprober DEBUG SHIFT_JIS Japanese confidence = 0.01
+20:44:43,731 chardet.charsetprober DEBUG EUC-JP not active
+20:44:43,731 chardet.charsetprober DEBUG GB2312 Chinese confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG EUC-KR not active
+20:44:43,732 chardet.charsetprober DEBUG CP949 Korean confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG Big5 not active
+20:44:43,732 chardet.charsetprober DEBUG EUC-TW not active
+20:44:43,732 chardet.charsetprober DEBUG windows-1251 Russian confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG KOI8-R Russian confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG ISO-8859-5 Russian confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG MacCyrillic Russian confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG IBM866 Russian confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG IBM855 Russian confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG ISO-8859-7 Greek confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG windows-1253 Greek confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG ISO-8859-5 Bulgairan confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG windows-1251 Bulgarian confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG TIS-620 Thai confidence = 0.01
+20:44:43,732 chardet.charsetprober DEBUG ISO-8859-9 Turkish confidence = 0.46817615392878703
+20:44:43,732 chardet.charsetprober DEBUG windows-1255 Hebrew confidence = 0.0
+20:44:43,732 chardet.charsetprober DEBUG windows-1255 Hebrew confidence = 0.0
+20:44:43,732 chardet.charsetprober DEBUG windows-1255 Hebrew confidence = 0.0
+20:44:43,734 root INFO  

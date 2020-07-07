@@ -1,0 +1,16 @@
+{
+  "status": 200,
+  "source_url":"http://www.xzy.com/...",
+  "review_count": 42,
+  "average_rating": 5.0,
+  "reviews": [
+    {
+      "id": 348547812,
+      "name": "Eric D.",
+      "location": "San Diego",
+      "date": "2014-12-21",
+      "rating_value": 3,
+      "review_text": "asdfasdf asdflasdfjadsfljasdf"
+    }
+  ]
+}
