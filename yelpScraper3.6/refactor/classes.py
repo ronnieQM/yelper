@@ -1,3 +1,6 @@
+import json
+
+
 class YelpBusiness:
     def __init__(self):
         self.id = None
@@ -13,14 +16,13 @@ class YelpBusiness:
         self.reviews = []
         self.reviewCount = 0
 
-    def allReviews(self):
+    def all_reviews(self):
         # TODO
         return "All Reviews"
 
-    def toJSON(self):
-        # TODO
-        # do I need to do this, even? or can I just call json() on Business.
-        return 'this is a test'
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__,
+                          sort_keys=True, indent=4)
 
     def __str__(self):
         # TODO
@@ -66,11 +68,20 @@ class YelpReview:
 
 
 class ProcessedRequest:
-    def __init__(self, original_url, base_url, name, page_response, page_content):
-        self.original_url = original_url,
+    def __init__(self, source_url, base_url, co, title, page_response, page_content):
+        self.source_url = source_url,
         self.url = base_url,
-        self.name = name,
+        self.company = co,
+        self.page_title = title,
         self.page_response = page_response,
-        self.page_content = page_content
+        self.page_content = page_contentk
 
-
+    def __str__(self):
+        return f"""
+        source_url: {self.source_url},
+        base_url: {self.base_url},
+        company: {self.company},
+        page_title: {self.page_title}:
+        page_response = {type(self.page_response)}
+        page_content = {type(self.page_content)}
+        """
