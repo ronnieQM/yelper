@@ -68,20 +68,20 @@ class YelpReview:
 
 
 class ProcessedRequest:
-    def __init__(self, source_url, base_url, co, title, page_response, page_content):
-        self.source_url = source_url,
-        self.url = base_url,
-        self.company = co,
-        self.page_title = title,
-        self.page_response = page_response,
-        self.page_content = page_contentk
+    def __init__(self, source_url, base_url, domain, title, page_response, soup):
+        self.source_url = source_url
+        self.url = base_url
+        self.domain = domain
+        self.page_title = title
+        self.page_response = page_response
+        self.soup = soup
 
     def __str__(self):
         return f"""
         source_url: {self.source_url},
-        base_url: {self.base_url},
-        company: {self.company},
+        url : {self.url},
+        domain: {self.domain},
         page_title: {self.page_title}:
         page_response = {type(self.page_response)}
-        page_content = {type(self.page_content)}
+        soup = {type(self.soup)}
         """
