@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+
+    "name": "Hello World",
+    "description": "This extension to test html injection",
+    "version": "1.0",
+    "content_scripts": [{
+        "run_at": "document_end",
+        "matches": [
+            "https://*/*",
+            "http://*/*"
+        ],
+        "js": ["js/jquery-3.5.1.js", "js/content-script.js"],
+        "css": ["css/style.css"]
+    }],
+    "browser_action": {
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "https://ajax.googleapis.com/"
+    ]
+  }

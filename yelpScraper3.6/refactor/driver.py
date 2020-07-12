@@ -20,13 +20,7 @@ if __name__ == "__main__":
 
     y = requester(url)
 
-    try:
-        import cPickle as pickle
-    except ModuleNotFoundError:
-        import pickle
+    import pickle
 
-    import sys
-    sys.setrecursionlimit(10000)
-
-    # with open('example_ProcessedRequest', 'w') as file:
-
+    with open('sample_processed_request.pkl', 'wb') as file:
+        pickle.dump(y, file)
