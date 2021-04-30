@@ -130,7 +130,7 @@ reportlab==3.5.23
 requests==2.23.0
 requests-unixsocket==0.1.5
 rope==0.17.0
-rsa==3.4.2
+rsa==4.7
 s3transfer==0.3.3
 screen-resolution-extra==0.0.0
 SecretStorage==2.3.1
