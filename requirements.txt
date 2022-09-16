@@ -70,7 +70,7 @@ lazr.restfulclient==0.14.2
 lazr.uri==1.0.3
 lesscpy==0.14.0
 lxml==4.5.0
-Mako==1.0.7
+Mako==1.2.2
 MarkupSafe==1.1.0
 matplotlib==3.2.1
 mistune==0.8.4
